@@ -41,6 +41,8 @@ func main(){
     **/
     pNew:=NewPerson("张三")
     fmt.Println(pNew)
+    errNew :=New("出错了");
+    fmt.Println(errNew)
 }
 /**
     * 结构体、字段结构体
@@ -86,6 +88,18 @@ func printString(s fmt.Stringer){
 **/
 func NewPerson(name string) *person{
     return &person{name:name}
+}
+//工厂函数，返回一个error接口，其实具体实现是*errorString
+func New(text string) error {
+    return &errorString{text}
+}
+//结构体，内部一个字段s，存储错误信息
+type errorString struct {
+    s string
+}
+//用于实现error接口
+func (e *errorString) Error() string {
+    return e.s
 }
 /**
 * 继承和组合

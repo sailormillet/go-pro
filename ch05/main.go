@@ -59,7 +59,9 @@ func main(){
     sm(age)
     
 }
-
+// func sum(a int,b int) int{
+//     return a+b
+// }
 //函数声明
 func sum(a, b int) int {
     return a + b
@@ -99,8 +101,8 @@ func colsure() func() int {
 }
 
 //方法
-//值类型接收者和
-type Age uint
+//值类型接收者 => 示例中方法 String() 就是类型 Age 的方法，类型 Age 是方法 String() 的接收者。
+type Age uint //type Age uint 表示定义一个新类型 Age，该类型等价于 uint，可以理解为类型 uint 的重命名。
 func (age Age) String() {
     fmt.Println("the age is",age)
 }
